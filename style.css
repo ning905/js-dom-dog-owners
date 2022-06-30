@@ -17,7 +17,7 @@ body {
   font-family: sans-serif;
   color: var(--dark-text);
   background-color: var(--white);
-  overflow: hidden;
+  overflow: scroll;
 }
 
 img {
@@ -35,7 +35,7 @@ img {
 }
 
 .header h1 {
-  padding: 2rem 0;
+  padding: 1rem 0;
   text-align: center;
 }
 
@@ -82,7 +82,7 @@ img {
   text-align: center;
   font-size: 1.5rem;
 
-  padding: 1rem;
+  padding: 0.5rem;
 
   border: 1px solid var(--white);
   border-radius: 10px;
@@ -148,7 +148,7 @@ img {
   background-color: var(--green);
 }
 
-.form > button {
+.form>button {
   width: 30%;
   justify-self: center;
   margin: 1rem 0;
