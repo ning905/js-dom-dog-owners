@@ -12,7 +12,6 @@ const setState = (update) => {
 };
 
 const dogsUL = document.querySelector(".dogs-list");
-const addDogBtn = document.querySelector(".dogs-list__button--add");
 const mainDogSection = document.querySelector(".main__dog-section");
 
 const createAddCard = () => {
@@ -100,10 +99,6 @@ const createAddCard = () => {
   });
 };
 
-addDogBtn.addEventListener("click", () => {
-  createAddCard();
-});
-
 // Header
 const createDogLi = (dog) => {
   const dogLi = document.createElement("li");
@@ -117,14 +112,28 @@ const createDogLi = (dog) => {
   return dogLi;
 };
 
-const render = () => {
-  //   state.dogs.forEach((dog) => {
-  //     dogsUL.appendChild(createDogLi(dog));
-  //   });
+const getInitDogLi = () => {
+  const initLi = document.createElement("li");
+  initLi.classList.add("dogs-list__button");
+  initLi.classList.add("dogs-list__button--add");
+  initLi.innerText = "+";
 
-  for (let i = 0; i < state.dogs.length; i++) {
-    dogsUL.appendChild(createDogLi(state.dogs[i]));
-  }
+  return initLi;
+};
+
+const render = () => {
+  dogsUL.innerHTML = "";
+
+  const addDogBtn = getInitDogLi();
+  dogsUL.append(addDogBtn);
+
+  addDogBtn.addEventListener("click", () => {
+    createAddCard();
+  });
+
+  state.dogs.forEach((dog) => {
+    dogsUL.appendChild(createDogLi(dog));
+  });
 };
 
 // Main
